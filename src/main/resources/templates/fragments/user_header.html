@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+</head>
+<body>
+<header th:fragment="header">
+  <nav class="header_nav" >
+    <ul class="header_ul">
+      <li class="header_li"><a th:href="@{/main}" class="logo">CarSale</a></li>
+      <li class="header_li"><a th:href="@{/main}" class="active">Главная</a></li>
+      <li class="header_li"><a th:href="@{/catalog}" class="active">Каталог</a></li>
+      <li class="header_li"><a th:href="@{/new_publication}" class="btn ad"><span class="Boldd">+</span> Подать
+        объявление</a></li>
+      <li class="header_li"><a href="/profile" class="btn profile">Профиль</a></li>
+<!--      <li class="header_li">-->
+<!--        <form th:action="@{/logout}" method="post" class="sing_out">-->
+<!--          <input type="submit" value="Выйти" class="btn profile"/>-->
+<!--        </form>-->
+<!--      </li>-->
+    </ul>
+  </nav>
+</header>
+</body>
+</html>

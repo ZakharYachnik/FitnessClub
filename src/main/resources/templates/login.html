@@ -1,0 +1,22 @@
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация и Авторизация</title>
+    <link rel="stylesheet" href="../../css/login.css" th:href="@{/css/login.css}">
+<!--    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">-->
+</head>
+<body>
+<h1>Войдите в аккаунт</h1>
+<div id="wrapper">
+    <form id="signin" th:action="@{/login-processing}" method="post" autocomplete="off">
+        <input type="text" id="user" name="username" placeholder="username" autocomplete="off"/>
+        <input type="password" id="pass" name="password" placeholder="password" autocomplete="off"/>
+        <button type="submit">&#xf0da;</button>
+        <p>Еще нет аккаунта? <a th:href="@{/registration}">Регистрация</a></p>
+    </form>
+    <div th:if="${param.error}" class="error">
+        <p>Неверный логин или пароль!</p>
+    </div>
+</div>
+</body>
+</html>

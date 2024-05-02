@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+    <link rel="stylesheet" href="../../css/administration.css" th:href="@{/css/administration.css}">
+    <title>Administration</title>
+</head>
+<body>
+<div th:replace="fragments/admin_header :: header"></div>
+
+<div class="users-container add-user-buttons">
+    <a href="/administration/statistics-memberships" class="add-student-link">Статистика по абонементам</a>
+    <a href="/administration/statistics-trainers" class="add-educator-link" style="padding-left: 50px; padding-right: 50px; margin-left: 20px">Статистика по тренерам</a>
+</div>
+
+<div class="users-container add-user-buttons">
+    <a href="/memberships/active" class="add-student-link">Активные абонементы</a>
+    <a href="/administration/add-trainer" class="add-educator-link" style="padding-left: 50px; padding-right: 50px; margin-left: 59px">Добавить Тренера</a>
+</div>
+
+<div class="container formDel users-container">
+    <form th:action="@{administration/block-account}" th:method="post" autocomplete="off">
+        <div class="container-fluid del_div">
+            <span class="del">Заблокировать аккаунт пользователя по Username</span> <input name="username" placeholde="Введите username">
+            <button type="submit" class="delete" >Заблокировать</button>
+        </div>
+    </form>
+    <div class="error" th:if="${param.errorMessage}">
+        <p>Пользователь не найден!</p>
+    </div>
+    <div class="success" th:if="${param.successBlockMessage}">
+        <p>Пользователь заблокирован</p>
+    </div>
+    <div class="success" th:if="${param.successUnblockMessage}">
+        <p>Пользователь разблокирован</p>
+    </div>
+</div>
+
+<div>
+    <h1>Пользователи</h1>
+    <table class="users-table users-table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя пользователя</th>
+            <th>ФИО</th>
+            <th>Номер телефона</th>
+            <th>Статус</th>
+            <th>Роли</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+            <td th:text="${user.active} ? 'Активен' : 'Заблокирован'"></td>
+            <td>
+                <ul>
+                    <li th:each="role : ${user.userRoles}" th:text="${role}"></li>
+                </ul>
+            </td>
+            <td>
+                <form th:action="${user.active} ? '/administration/block-account' : '/administration/unblock-account'" method="post">
+                    <input type="hidden" name="username" th:value="${user.username}" />
+                    <button type="submit" class="users-btn " style="margin: 10px auto" th:text="${user.active} ? 'Заблокировать' : 'Разблокировать'">
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

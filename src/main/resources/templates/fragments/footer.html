@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+</head>
+<body>
+<footer class="footer" th:fragment="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__column">
+                <h4 class="footer__title">О нас</h4>
+                <p class="footer__text">Gym 24/7 - это уникальный спортивный зал, который открыт круглосуточно. Мы
+                    предлагаем вам возможность заниматься фитнесом и тренировками в удобное для вас время, без
+                    ограничений по часам. Наш зал оборудован современными тренажерами и обеспечен профессиональными
+                    инструкторами, готовыми
+                    помочь вам достичь ваших физических целей.</p>
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Контакты</h4>
+                <p class="footer__text"><i class="fas fa-map-marker-alt"></i> Минск, Беларусь</p>
+                <p class="footer__text"><i class="fas fa-phone"></i> +375 (33) 330-053-20</p>
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Социальные сети</h4>
+                <ul class="footer__social">
+                    <li><a href="https://instagram.com/zaherushka?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram">instagram:
+                        @zaharushka</i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h4 class="footer__title">Навигация</h4>
+                <ul class="footer__nav">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Проекты</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer__copy">&copy; 2024 Gym 24/7. Все права защищены.</p>
+    </div>
+</footer>
+</body>
+</html>

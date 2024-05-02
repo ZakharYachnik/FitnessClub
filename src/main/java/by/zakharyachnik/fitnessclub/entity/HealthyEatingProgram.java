@@ -20,5 +20,4 @@ public class HealthyEatingProgram {
     @Column
     private String description;
 
-
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/registration.css" th:href="@{/css/registration.css}">
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <title>Регистрация</title>
+</head>
+<body>
+<h1>Введите данные для регистрации</h1>
+<div id="wrapper">
+    <form id="signin" th:method="POST" th:action="@{/registration}" autocomplete="off">
+        <input type="text" id="user" name="username" placeholder="username"/>
+        <input type="password" id="password" name="password" placeholder="password"/>
+        <input type="text" id="phone_number" name="phone_number" placeholder="phone_number"/>
+        <input type="text" id="full_name" name="full_name" placeholder="FIO"/>
+        <button type="submit">&#xf0da;</button>
+    </form>
+    <button class="little_button1 info"
+            data-tooltip="* Логин - от 3 до 16 симловов!"><img
+            th:src="@{/images/icon.png}" alt="info"></button>
+    <button class="little_button2 info"
+            data-tooltip="* Пароль содержит хотябы одну букву и цифру и длиной больше 4">
+        <img th:src="@{/images/icon.png}" alt="info"></button>
+    <button class="little_button3 info" data-tooltip="* Пример ввода номера телефона +375333305320"><img
+            th:src="@{/images/icon.png}" alt="info"></button>
+    <button class="little_button4 info"
+            data-tooltip="* ФИО должно содержать только буквы кириллицы и состоять из трех слов"><img
+            th:src="@{/images/icon.png}" alt="info"></button>
+    <div th:if="${message != null && !message.isEmpty()}" class="error">
+        <p th:text="${message}"></p>
+    </div>
+</div>
+</body>
+</html>

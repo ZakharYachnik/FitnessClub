@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "users_memberships")
 @Getter
@@ -26,4 +28,7 @@ public class UserMembership {
 
     @Column(nullable = false)
     private boolean active;
+
+    @Column
+    private LocalDate purchaseDate;
 }

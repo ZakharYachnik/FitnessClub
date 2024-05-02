@@ -1,0 +1,7 @@
+package by.zakharyachnik.fitnessclub.dto;
+
+public record TrainingProgramDto(
+    Long id,
+    String description
+) {
+}

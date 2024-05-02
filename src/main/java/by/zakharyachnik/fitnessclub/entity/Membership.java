@@ -21,13 +21,13 @@ public class Membership {
     private String name;
 
     @Column(nullable = false)
-    private double price;
+    private Double price;
 
     @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
-    private int duration;
+    private Integer duration;
 
 
 }

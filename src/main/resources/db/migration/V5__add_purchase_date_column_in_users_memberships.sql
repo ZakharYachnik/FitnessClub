@@ -1,0 +1,1 @@
+ALTER TABLE users_memberships ADD COLUMN purchase_date DATE;

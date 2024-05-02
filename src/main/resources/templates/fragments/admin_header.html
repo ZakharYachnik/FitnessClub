@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+</head>
+<body>
+<header th:fragment="header">
+  <nav class="header_nav">
+    <ul class="header_ul">
+      <li class="header_li"><a th:href="@{/main-page}" class="logo">Gym 24/7</a></li>
+      <li class="header_li"><a th:href="@{/main-page}" class="active">Главная</a></li>
+      <li class="header_li"><a th:href="@{/memberships}" class="active" >Абонементы</a></li>
+      <li class="header_li"><a th:href="@{/administration}" class="btn ad" style="margin-left: 670px"><span class="Boldd">+</span>
+        Администрирование </a></li>
+      <li class="header_li"><a th:href="@{/logout}" class="btn profile">Выход</a></li>
+    </ul>
+  </nav>
+</header>
+</body>
+</html>
