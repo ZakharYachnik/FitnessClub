@@ -15,4 +15,8 @@ public interface UserService {
     UserDto blockUser(String username) throws NotFoundException;
 
     UserDto unblockUser(String username) throws NotFoundException;
+
+    UserDto update(String username, String fullName, String password, String phoneNumber, Long userId) throws AlreadyExistsException, NotFoundException;
+
+    UserDto findById(Long id);
 }

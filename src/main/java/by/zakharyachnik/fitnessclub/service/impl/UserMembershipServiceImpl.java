@@ -66,4 +66,10 @@ public class UserMembershipServiceImpl implements UserMembershipService {
 
         return userMembershipMapper.toUserMembershipDto(userMembershipRepository.save(userMembership));
     }
+
+    @Override
+    public UserMembershipDto findUserMembershipByUserId(Long userId) throws NotFoundException {
+        return userMembershipMapper.toUserMembershipDto(userMembershipRepository.findByUserIdAndActive(userId, true)
+                .orElseThrow(() -> new NotFoundException("User membership with user id " + userId + " not found")));
+    }
 }

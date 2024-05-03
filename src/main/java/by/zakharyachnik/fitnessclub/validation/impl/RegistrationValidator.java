@@ -3,7 +3,7 @@ package by.zakharyachnik.fitnessclub.validation.impl;
 public class RegistrationValidator  {
     private static RegistrationValidator validator;
     //логин должен состоять только из букв и цифр и иметь длину от 3 до 20 символов
-    private static final String LOGIN_REGEX = "^[a-zA-Z]{3,20}$";
+    private static final String LOGIN_REGEX = "^[a-zA-Z0-9]{3,20}$";
     //пароль содержит хотябы одну букву и цифру и длиной больше 4
     private static final String PASSWORD_REGEX = "^(?=.*[a-zA-Z])(?=.*\\d).{5,}$";
     //состоит из 3 и более слов, начинается с заглавной и состоит только из букв

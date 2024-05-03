@@ -74,4 +74,28 @@ public class UserServiceImpl implements UserService {
         user.get().setActive(true);
         return userMapper.toUserDto(userRepository.save(user.get()));
     }
+
+    @Override
+    public UserDto update(String username, String fullName, String password, String phoneNumber, Long userId) throws AlreadyExistsException, NotFoundException {
+        if(userRepository.findByUsernameAndIdNot(username, userId).isPresent()){
+            throw new AlreadyExistsException("User with username " + username + " already exists");
+        }
+
+        Optional<User> user = userRepository.findById(userId);
+
+        if(user.isEmpty()){
+            throw new NotFoundException("User with id " + userId + " not found");
+        }
+
+        user.get().setUsername(username)
+                .setFullName(fullName)
+                .setPassword(passwordEncoder.encode(password))
+                .setPhoneNumber(phoneNumber);
+        return userMapper.toUserDto(userRepository.save(user.get()));
+    }
+
+    @Override
+    public UserDto findById(Long id) {
+        return userMapper.toUserDto(userRepository.findById(id).orElse(null));
+    }
 }

@@ -1,0 +1,136 @@
+body {
+    background-color: #2c2b2b;
+    margin: 0;
+}
+
+.profile-container {
+    background-color: #626161;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom:10px;
+    margin: 20px auto;
+    max-width: 80vw;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.profile-field {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.profile-field label {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.profile-field input {
+    background-color: #888787;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button-container {
+
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom:30px;
+}
+
+.edit-button {
+    text-align: center;
+    display: inline-block; /* или display: block; в зависимости от ваших потребностей */
+    font-weight: 600;
+    width: 300px;
+    background-color: rgb(94, 0, 209);
+    color: #fff;
+    padding: 15px 15px 15px 15px;
+    margin-right: 27px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.favorites{
+    background-color: #626161;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom:10px;
+    margin: 20px auto;
+    max-width: 80vw;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display:flex;
+}
+
+.edit-button:hover {
+    background-color: #36039e;
+    color: #fff;
+}
+
+.favorites-form{
+    width: 400px;
+    margin-bottom: 20px;
+}
+.favorites-button{
+    font-weight: 600;
+    margin-left: 0px;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(94, 0, 209);
+    margin-top: 10px;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid rgb(18, 18, 18);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favorites-button:hover{
+    background-color: #36039e;
+    color: rgb(254, 3, 3);
+    box-shadow: 0px 0px 10px rgb(243, 2, 2);
+}
+
+.my-publications-button{
+    font-weight: 600;
+    margin-left: 420px;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(94, 0, 209);
+    margin-top: 10px;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid rgb(30, 0, 164);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.my-publications-button:hover{
+    background-color: #36039e;
+    color: rgb(160, 161, 160);
+    box-shadow: 0px 0px 10px rgb(170, 172, 170);
+}
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+    <link rel="stylesheet" href="../../css/reviews.css" th:href="@{/css/reviews.css}">
+    <link rel="shortcut icon" th:href="@{/images/warning.png}" type="image/x-icon">
+    <title>Reviews</title>
+</head>
+<body>
+
+
+<div sec:authorize="hasRole('ADMIN')">
+    <div th:replace="fragments/admin_header :: header">
+    </div>
+</div>
+
+<div sec:authorize="hasRole('USER')">
+    <div th:replace="fragments/user_header :: header">
+    </div>
+</div>
+
+<div sec:authorize="hasRole('TRAINER')">
+    <div th:replace="fragments/trainer_header :: header">
+    </div>
+</div>
+
+<div class="container main-div">
+    <div class="row">
+        <div class="col-12 comment-form">
+            <h2 style=" text-align: center">Оставьте отзыв</h2>
+            <form th:action="@{/reviews}" method="POST">
+                <input type="hidden" th:value="${username}" name="username"/>
+                <label for="writed-comment" class="comment-label">Отзыв:</label>
+                <textarea class="writed-comment" id="writed-comment" name="reviewText" rows="4" cols="50"
+                          placeholder="Напишите комментарий" required></textarea><br><br>
+                <input type="submit" value="Отправить">
+            </form>
+        </div>
+    </div>
+    <div class="comment-list">
+        <ul class="list">
+            <li th:each="review : ${reviews}">
+                <div class="row">
+                    <div class="col-2 avatar">
+                        <img th:src="@{/images/avatar.png}" alt="аватар" class="avatarImg">
+                    </div>
+                    <div class="comments">
+                        <div class="comment dialog">
+                            <h4 class="username" th:text="${review.username}"></h4>
+                            <p class="comment-text" th:text="${review.reviewText}"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer">
+</div>
+
+<script th:src="@{/script/main_page.js}"></script>
+</body>
+</html>
+
+
+
+

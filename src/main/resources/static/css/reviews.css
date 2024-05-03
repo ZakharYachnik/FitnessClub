@@ -1,0 +1,107 @@
+body {
+    margin: 0px;
+    background-color: #2c2b2b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.dialog {
+    position: relative;
+    background: #d4d4d4;
+    padding: 10px 15px 15px 15px;
+    color: #222;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.dialog::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 15px solid #d4d4d4;
+    left: -15px;
+    top: 15px;
+}
+
+.comment p {
+    margin: 0 0 10px 0;
+}
+
+.avatar{
+    height: 100px;
+    width: 100px;
+}
+
+.avatarImg{
+    height: 100px;
+    width: 100px;
+}
+
+.username{
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.comment-text{
+    text-align: justify;
+}
+
+.list li{
+    list-style-type: none;
+}
+
+.comment-form{
+    padding: 10px;
+    width: 80vw;
+    background-color: #7a7979;
+    border: 2px solid #979595;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.writed-comment{
+    padding: 5px;
+    color: #222;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.comment-label{
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    /* margin-left: 30px; */
+    width: 100px;
+    height: 36px;
+    background-color: #f33;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #fff;
+    color: #f33;
+}
+
+.comments {
+    margin-top: 20px;
+    width: 800px;
+}
+
+.comment {
+    width: 100%;
+    margin-bottom: 20px;
+}

@@ -36,8 +36,7 @@ public class AccountController {
             Model model
     ) {
         if(!userDataValidation.checkRegistrationData(username, password, fullName, phoneNumber)){
-            model.addAttribute("message", "Некорректные данные");
-            return "registration";
+            return "redirect:/registration?dataError=true";
         }
 
         String role = "ROLE_USER";
@@ -45,8 +44,7 @@ public class AccountController {
             userService.save(username, fullName, password, phoneNumber, role);
             return "redirect:/login";
         } catch (AlreadyExistsException e) {
-            model.addAttribute("message", "Пользователь с таким именем уже существует");
-            return "registration";
+            return "redirect:/registration?alreadyExistsError=true";
         }
     }
 
@@ -57,5 +55,7 @@ public class AccountController {
         System.out.println(authentication.getAuthorities());
         return "main_page";
     }
+
+
 
 }

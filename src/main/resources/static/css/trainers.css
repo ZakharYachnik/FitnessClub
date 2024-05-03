@@ -1,0 +1,89 @@
+body{
+    background-color: #605f5f;
+}
+
+.container-list {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.trainer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    grid-gap: 20px;
+}
+
+.trainer-item {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #dad1d1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.trainer-link:hover {
+    text-decoration: none;
+}
+
+.trainer-title {
+    color: #271d2e;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.trainer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trainer-description {
+    color: #777;
+}
+
+.trainer-duration {
+    font-style: italic;
+    color: #777;
+}
+
+.purchase{
+    border: 2px solid #7B1FA2;
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.purchase:hover{
+    background-color: #7B1FA2;
+    color: #fff;
+}
+
+.error, .success {
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error p {
+    color: red;
+}
+
+.success p {
+    color: #01bd01;
+}

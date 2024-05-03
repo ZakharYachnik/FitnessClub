@@ -5,17 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/registration.css" th:href="@{/css/registration.css}">
-    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
-    <title>Регистрация</title>
+    <link rel="shortcut icon" th:href="@{/images/warning.png}" type="image/x-icon">
+    <title>Редактирование профиля</title>
 </head>
 <body>
-<h1>Введите данные для регистрации</h1>
+<h1>Можете изменить данные</h1>
 <div id="wrapper">
-    <form id="signin" th:method="POST" th:action="@{/registration}" autocomplete="off">
-        <input type="text" id="user" name="username" placeholder="username"/>
+    <form id="signin" th:method="POST" th:action="@{/profile/edit}" autocomplete="off">
+        <input type="hidden" th:value="${user.id}" name="userId"/>
+        <input type="text" id="user" name="username" th:value="${user.username}" placeholder="username"/>
         <input type="password" id="password" name="password" placeholder="password"/>
-        <input type="text" id="phone_number" name="phone_number" placeholder="phone_number"/>
-        <input type="text" id="full_name" name="full_name" placeholder="FIO"/>
+        <input type="text" id="phone_number" name="phone_number" th:value="${user.phoneNumber}"
+               placeholder="phone_number"/>
+        <input type="text" id="full_name" name="full_name" th:value="${user.fullName}"
+               placeholder="FIO"/>
         <button type="submit">&#xf0da;</button>
     </form>
     <button class="little_button1 info"

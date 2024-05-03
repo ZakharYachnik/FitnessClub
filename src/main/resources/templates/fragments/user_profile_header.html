@@ -13,12 +13,15 @@
         <ul class="header_ul">
             <li class="header_li"><a th:href="@{/main-page}" class="logo">Gym 24/7</a></li>
             <li class="header_li"><a th:href="@{/main-page}" class="active">Главная</a></li>
-            <li class="header_li"><a th:href="@{/training-programs}" class="active" >Программы тренировок</a></li>
-            <li class="header_li"><a th:href="@{/healthy-eating-programs}" class="active">Программы питания</a></li>
+            <li class="header_li"><a th:href="@{/memberships}" class="active">Абонементы</a></li>
+            <li class="header_li"><a th:href="@{/trainers}" class="active">Тренеры</a></li>
             <li class="header_li"><a th:href="@{/reviews}" class="active">Отзывы</a></li>
-            <li class="header_li"><a th:href="@{/personal-trainings}" class="btn ad" style="margin-left: 150px">
-                Персональные тренировки </a></li>
-            <li class="header_li"><a th:href="@{/logout}" class="btn profile">Выход</a></li>
+
+            <li class="header_li" style="margin-left: 700px">
+                <form th:action="@{/logout}" method="post" class="sing_out">
+                    <input type="submit" value="Выйти" class="btn profile"/>
+                </form>
+            </li>
         </ul>
     </nav>
 </header>

@@ -13,4 +13,6 @@ public interface UserMembershipService {
     List<UserMembershipDto> findAllActiveMemberships();
 
     UserMembershipDto completeUserMembership(Long userMembershipId) throws NotFoundException;
+
+    UserMembershipDto findUserMembershipByUserId(Long userId) throws NotFoundException;
 }
