@@ -3,12 +3,14 @@ package by.zakharyachnik.fitnessclub.service.impl;
 import by.zakharyachnik.fitnessclub.dto.PersonalTrainingDto;
 import by.zakharyachnik.fitnessclub.dto.UserDto;
 import by.zakharyachnik.fitnessclub.entity.PersonalTraining;
+import by.zakharyachnik.fitnessclub.entity.TrainingProgram;
 import by.zakharyachnik.fitnessclub.entity.User;
 import by.zakharyachnik.fitnessclub.exceptions.AlreadyExistsException;
 import by.zakharyachnik.fitnessclub.exceptions.NotFoundException;
 import by.zakharyachnik.fitnessclub.mapper.PersonalTrainingMapper;
 import by.zakharyachnik.fitnessclub.mapper.UserMapper;
 import by.zakharyachnik.fitnessclub.repository.PersonalTrainingRepository;
+import by.zakharyachnik.fitnessclub.repository.TrainingProgramRepository;
 import by.zakharyachnik.fitnessclub.repository.UserRepository;
 import by.zakharyachnik.fitnessclub.service.PersonalTrainingService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,8 @@ public class PersonalTrainingServiceImpl implements PersonalTrainingService {
     private final PersonalTrainingMapper personalTrainingMapper;
 
     private final PersonalTrainingRepository personalTrainingRepository;
+
+    private final TrainingProgramRepository trainingProgramRepository;
 
     private final UserMapper userMapper;
 
@@ -84,6 +88,33 @@ public class PersonalTrainingServiceImpl implements PersonalTrainingService {
         personalTraining.get().setActive(false);
         return personalTrainingMapper.toPersonalTrainingDto(personalTrainingRepository.save(personalTraining.get()));
     }
+
+    @Override
+    public List<PersonalTrainingDto> getTrainerPersonalTrainings(Long trainerId) {
+        return personalTrainingRepository.findByTrainerIdAndActive(trainerId, true)
+                .stream()
+                .map(personalTrainingMapper::toPersonalTrainingDto)
+                .toList();
+    }
+
+    @Override
+    public PersonalTrainingDto getPersonalTraining(Long personalTrainingId) {
+        return personalTrainingMapper.toPersonalTrainingDto(personalTrainingRepository.findById(personalTrainingId).orElse(null));
+    }
+
+    @Override
+    public PersonalTrainingDto addTrainingProgramToPersonalTraining(Long personalTrainingId, Long trainingProgramId) throws NotFoundException {
+
+        PersonalTraining personalTraining = personalTrainingRepository.findById(personalTrainingId)
+                .orElseThrow(() -> new NotFoundException("Personal training with id " + personalTrainingId + " not found"));
+
+        TrainingProgram trainingProgram = trainingProgramRepository.findById(trainingProgramId)
+                .orElseThrow(() -> new NotFoundException("Training program with id " + trainingProgramId + " not found"));
+
+        return personalTrainingMapper.toPersonalTrainingDto(personalTrainingRepository
+                .save(personalTraining
+                    .setTrainingProgram(trainingProgram)));
+        }
 
 
 }

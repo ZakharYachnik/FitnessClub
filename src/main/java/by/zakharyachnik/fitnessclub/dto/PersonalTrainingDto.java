@@ -4,7 +4,6 @@ public record PersonalTrainingDto(
     Long id,
     UserDto customerDto,
     Long trainerId,
-    TrainingProgramDto trainingProgramDto,
-    HealthyEatingProgramDto healthyEatingProgramDto
+    TrainingProgramDto trainingProgramDto
 ) {
 }

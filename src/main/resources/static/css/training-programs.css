@@ -1,0 +1,160 @@
+body{
+    background-color: #605f5f;
+}
+
+.container-list {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.trainingProgram-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    grid-gap: 20px;
+}
+
+.trainingProgram-item {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #dad1d1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trainingProgram-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.trainingProgram-link:hover {
+    text-decoration: none;
+}
+
+.trainingProgram-title {
+    color: #271d2e;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.trainingProgram-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trainingProgram-description {
+    color: #777;
+}
+
+.trainingProgram-duration {
+    font-style: italic;
+    color: #777;
+}
+
+.purchase{
+    color: #7B1FA2;
+    border: 2px solid #7B1FA2;
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.purchase:hover{
+    background-color: #7B1FA2;
+    color: #fff;
+}
+
+.info{
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 2px solid #7B1FA2;
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    color: #7B1FA2;
+}
+
+.info:hover{
+    background-color: #7B1FA2;
+    color: #fff;
+}
+
+.error, .success {
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error p {
+    color: red;
+}
+
+.success p {
+    color: #01bd01;
+}
+
+.users-container {
+    margin: 20px auto;
+    max-width: 750px;
+    background-color: #b1b1b1;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-user-buttons a {
+    border-radius: 4px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #6c22a8;
+    color: white;
+    text-decoration: none;
+}
+
+.add-user-buttons a:hover {
+    background-color: #490383;
+}
+
+.add-user-buttons a:focus {
+    outline: none;
+}
+
+
+.error, .success {
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error p {
+    color: red;
+}
+
+.success p {
+    color: #01bd01;
+}

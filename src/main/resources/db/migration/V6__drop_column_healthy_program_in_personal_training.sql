@@ -1,0 +1,3 @@
+ALTER TABLE personal_trainings
+DROP CONSTRAINT personal_trainings_healthy_eating_program_id_fkey,
+DROP COLUMN healthy_eating_program_id;

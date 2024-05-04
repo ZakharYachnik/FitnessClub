@@ -1,6 +1,6 @@
 package by.zakharyachnik.fitnessclub.repository;
 
-import by.zakharyachnik.fitnessclub.entity.HealthyEatingProgram;
+
 import by.zakharyachnik.fitnessclub.entity.User;
 import by.zakharyachnik.fitnessclub.entity.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;

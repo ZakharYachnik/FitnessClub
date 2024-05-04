@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/training-programs.css" th:href="@{/css/training-programs.css}">
+    <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+
+    <title>Personal Trainings</title>
+</head>
+<body>
+
+<div sec:authorize="hasRole('TRAINER')">
+    <div th:replace="fragments/trainer_header :: header">
+    </div>
+</div>
+
+<div class="users-container add-user-buttons">
+  <a href="/training-programs/add" class="add-student-link">Добавить программу тренировок</a>
+</div>
+
+<div class="error" th:if="${trainingPrograms.size() == 0}" style="margin-bottom: 50px; margin-top: 50px">
+    <p>У вас еще нет программ тренировок</p>
+</div>
+
+<div class="success" th:if="${param.success}">
+    <p>Вы успешно добавили программу тренировок</p>
+</div>
+<div class="error" th:if="${param.notFoundError}">
+    <p>Ошибка при отмене тренировок</p>
+</div>
+
+<div class="container container-list">
+    <ul class="trainingProgram-list">
+        <li th:each="trainingProgramDto : ${trainingPrograms}">
+            <div class="trainingProgram-item">
+                <div class="trainingProgram-details">
+                    <div class="trainingProgram-title">
+                        <h2 class="trainingProgram-name" th:text="${trainingProgramDto.name}"
+                            style="display: inline-block; width: 450px"></h2>
+                        <h2 class="trainingProgram-price" th:text="${trainerUsername}"
+                            style="display: inline-block;"></h2>
+                    </div>
+                </div>
+                <div sec:authorize="hasRole('TRAINER')">
+                    <a class="info" th:href="@{/training-programs/{id}(id=${trainingProgramDto.id})}">Подробнее</a>
+                </div>
+                <div sec:authorize="hasRole('TRAINER')">
+                    <div th:if="${param.id}">
+                        <form th:method="POST" th:action="@{/personal-trainings/{id}(id=${param.id})}">
+                            <input type="hidden" name="trainingProgramId" th:value="${trainingProgramDto.id}">
+                            <button type="submit" class="purchase">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+</html>
+
+<!-- - Понедельник: Бегат 20км каждые 2 сек;-->
+<!-- - Вторник: Анжумання 40р каждый час;-->
+<!-- - Среда: Отдых;-->
+<!-- - Четверг: Пресс качат;-->
+<!-- - Пятница: много кушац;-->
+<!-- - Суббота: Бег;-->
+<!-- - Воскресенье: Бег и кушац.-->

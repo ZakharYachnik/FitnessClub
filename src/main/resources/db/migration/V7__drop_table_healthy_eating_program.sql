@@ -1,0 +1,1 @@
+drop table healthy_eating_programs;

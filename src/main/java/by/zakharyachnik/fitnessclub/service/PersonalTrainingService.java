@@ -2,6 +2,7 @@ package by.zakharyachnik.fitnessclub.service;
 
 import by.zakharyachnik.fitnessclub.dto.PersonalTrainingDto;
 import by.zakharyachnik.fitnessclub.dto.UserDto;
+import by.zakharyachnik.fitnessclub.entity.PersonalTraining;
 import by.zakharyachnik.fitnessclub.exceptions.AlreadyExistsException;
 import by.zakharyachnik.fitnessclub.exceptions.NotFoundException;
 
@@ -15,4 +16,10 @@ public interface PersonalTrainingService {
     PersonalTrainingDto cancelPersonalTraining(Long trainerId, Long customerId) throws NotFoundException;
 
     PersonalTrainingDto cancelPersonalTraining(Long personalTrainingId) throws NotFoundException;
+
+    List<PersonalTrainingDto> getTrainerPersonalTrainings(Long trainerId);
+
+    PersonalTrainingDto getPersonalTraining(Long personalTrainingId);
+
+    PersonalTrainingDto addTrainingProgramToPersonalTraining(Long personalTrainingId, Long trainingProgramId) throws NotFoundException;
 }

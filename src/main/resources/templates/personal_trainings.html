@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/personal_training.css" th:href="@{/css/personal_trainings.css}">
+    <link rel="stylesheet" href="../../css/headerFooter.css" th:href="@{/css/headerFooter.css}">
+
+    <title>Personal Trainings</title>
+</head>
+<body>
+
+<div sec:authorize="hasRole('TRAINER')">
+    <div th:replace="fragments/trainer_header :: header">
+    </div>
+</div>
+
+<div class="error" th:if="${personalTrainings.size() == 0}" style="margin-bottom: 50px; margin-top: 50px">
+    <p>У вас еще нет персональных тренировок</p>
+</div>
+
+<div class="success" th:if="${param.success}">
+    <p>Вы успешно отменили персональную тренировку</p>
+</div>
+<div class="error" th:if="${param.notFoundError}">
+    <p>Ошибка при отмене тренировок</p>
+</div>
+
+<div class="container container-list">
+    <ul class="personalTraining-list">
+        <li th:each="personalTrainingDto : ${personalTrainings}">
+            <div class="personalTraining-item">
+                <div class="personalTraining-details">
+                    <div class="personalTraining-title">
+                        <h2 class="personalTraining-name" th:text="${personalTrainingDto.customerDto.fullName}"
+                            style="display: inline-block; width: 450px"></h2>
+                        <h2 class="personalTraining-price" th:text="${personalTrainingDto.customerDto.phoneNumber}"
+                            style="display: inline-block;"></h2>
+                    </div>
+                    <div class="personalTraining-info" th:if="${personalTrainingDto.trainingProgramDto != null}">
+                        <p class="personalTraining-description"
+                           th:text="'Программа тренировок: ' + ${personalTrainingDto.trainingProgramDto.name}"></p>
+                    </div>
+                    <div class="personalTraining-info" th:if="${personalTrainingDto.trainingProgramDto == null}">
+                        <p class="personalTraining-description">Программа тенировок не установлена</p>
+                    </div>
+                </div>
+                <div sec:authorize="hasRole('TRAINER')">
+                    <a class="info" th:href="@{/personal-trainings/{id}(id=${personalTrainingDto.id})}">Подробнее</a>
+                </div>
+                <div sec:authorize="hasRole('TRAINER')">
+                    <form th:method="POST" th:action="@{/personal-trainings/cancel}">
+                        <input type="hidden" name="personalTrainingId" th:value="${personalTrainingDto.id}">
+                        <button type="submit" class="purchase">Отменить тренировки</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+</html>

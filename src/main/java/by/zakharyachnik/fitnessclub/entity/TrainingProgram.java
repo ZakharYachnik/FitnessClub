@@ -18,5 +18,8 @@ public class TrainingProgram {
     private Long id;
 
     @Column
+    private String name;
+
+    @Column
     private String description;
 }

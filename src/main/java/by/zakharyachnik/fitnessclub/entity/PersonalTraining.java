@@ -26,9 +26,6 @@ public class PersonalTraining {
     @ManyToOne
     private TrainingProgram trainingProgram;
 
-    @ManyToOne
-    private HealthyEatingProgram healthyEatingProgram;
-
     @Column
     private Boolean active;
 }

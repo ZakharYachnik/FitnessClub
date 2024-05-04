@@ -8,7 +8,7 @@ body{
     padding: 20px;
 }
 
-.trainer-list {
+.personalTraining-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -17,7 +17,7 @@ body{
     grid-gap: 20px;
 }
 
-.trainer-item {
+.personalTraining-item {
     padding: 20px;
     box-sizing: border-box;
     background-color: #dad1d1;
@@ -25,38 +25,39 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.trainer-link {
+.personalTraining-link {
     text-decoration: none;
     color: #333;
 }
 
-.trainer-link:hover {
+.personalTraining-link:hover {
     text-decoration: none;
 }
 
-.trainer-title {
+.personalTraining-title {
     color: #271d2e;
     margin-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.trainer-info {
+.personalTraining-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.trainer-description {
+.personalTraining-description {
     color: #777;
 }
 
-.trainer-duration {
+.personalTraining-duration {
     font-style: italic;
     color: #777;
 }
 
 .purchase{
+    color: #7B1FA2;
     border: 2px solid #7B1FA2;
     font-weight: 550;
     font-size: 16px;
@@ -67,11 +68,32 @@ body{
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 .purchase:hover{
     background-color: #7B1FA2;
     color: #fff;
 }
 
+.info{
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 2px solid #7B1FA2;
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    color: #7B1FA2;
+}
+
+.info:hover{
+    background-color: #7B1FA2;
+    color: #fff;
+}
 
 .error, .success {
     text-align: center;
