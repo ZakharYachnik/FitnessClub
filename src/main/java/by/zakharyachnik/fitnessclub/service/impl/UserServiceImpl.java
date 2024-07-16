@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto update(String username, String fullName, String password, String phoneNumber, Long userId) throws AlreadyExistsException, NotFoundException {
         if(userRepository.findByUsernameAndIdNot(username, userId).isPresent()){
-            throw new AlreadyExistsException("User with username " + username + " already exists");
+            throw new AlreadyExistsException("User with username " + username + " and another id already exists");
         }
 
         Optional<User> user = userRepository.findById(userId);
