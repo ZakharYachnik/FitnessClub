@@ -57,7 +57,7 @@ public class PersonalTrainingServiceImplTest {
     private TrainingProgram trainingProgram;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         trainer = new User();
         trainer.setId(1L);
         trainer.setUsername("trainer");
@@ -72,16 +72,14 @@ public class PersonalTrainingServiceImplTest {
         personalTraining.setCustomer(customer);
         personalTraining.setActive(true);
 
-        personalTrainingDto = new PersonalTrainingDto();
-        personalTrainingDto.setId(1L);
+        userDto = new UserDto(2L, "customer", "Customer Fullname", true, "123456789", List.of("ROLE_USER"));
 
-        userDto = new UserDto();
-        userDto.setId(1L);
-        userDto.setUsername("trainer");
+        personalTrainingDto = new PersonalTrainingDto(1L, userDto, 1L, null);
 
         trainingProgram = new TrainingProgram();
         trainingProgram.setId(1L);
     }
+
 
     @Test
     public void testAddNewPersonalTraining() throws NotFoundException, AlreadyExistsException {
@@ -120,6 +118,7 @@ public class PersonalTrainingServiceImplTest {
     public void testCancelPersonalTrainingByTrainerAndCustomer() throws NotFoundException {
         when(personalTrainingRepository.findByTrainerIdAndCustomerIdAndActive(anyLong(), anyLong(), anyBoolean())).thenReturn(Optional.of(personalTraining));
         when(personalTrainingMapper.toPersonalTrainingDto(any(PersonalTraining.class))).thenReturn(personalTrainingDto);
+        when(personalTrainingRepository.save(any(PersonalTraining.class))).thenReturn(personalTraining);
 
         PersonalTrainingDto result = personalTrainingService.cancelPersonalTraining(1L, 2L);
 
@@ -133,6 +132,7 @@ public class PersonalTrainingServiceImplTest {
     public void testCancelPersonalTrainingById() throws NotFoundException {
         when(personalTrainingRepository.findById(anyLong())).thenReturn(Optional.of(personalTraining));
         when(personalTrainingMapper.toPersonalTrainingDto(any(PersonalTraining.class))).thenReturn(personalTrainingDto);
+        when(personalTrainingRepository.save(any(PersonalTraining.class))).thenReturn(personalTraining);
 
         PersonalTrainingDto result = personalTrainingService.cancelPersonalTraining(1L);
 
@@ -172,6 +172,7 @@ public class PersonalTrainingServiceImplTest {
         when(personalTrainingRepository.findById(anyLong())).thenReturn(Optional.of(personalTraining));
         when(trainingProgramRepository.findById(anyLong())).thenReturn(Optional.of(trainingProgram));
         when(personalTrainingMapper.toPersonalTrainingDto(any(PersonalTraining.class))).thenReturn(personalTrainingDto);
+        when(personalTrainingRepository.save(any(PersonalTraining.class))).thenReturn(personalTraining);
 
         PersonalTrainingDto result = personalTrainingService.addTrainingProgramToPersonalTraining(1L, 1L);
 
